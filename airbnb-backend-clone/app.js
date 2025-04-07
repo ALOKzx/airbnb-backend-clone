@@ -7,7 +7,7 @@ const session = require('express-session');
 const { default: mongoose } = require('mongoose');
 const multer = require('multer');
 const MongoDbStore = require('connect-mongodb-session') (session);
-const dbPath = "mongodb+srv://root:root@cluster101.n7yxt5g.mongodb.net/airbnb?retryWrites=true&w=majority&appName=Cluster101";
+require('dotenv').config();
 
 // local module
 const storeRouter = require("./routes/storeRouter");
@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const store = new MongoDbStore({
-  uri : dbPath,
+  uri : process.env.DB_PATH,
   collection : 'sessions'
 })
 
@@ -94,7 +94,7 @@ app.use(errorsControllers.PageNotFound);
 
 
 
-mongoose.connect(dbPath).then(() => {
+mongoose.connect(process.env.DB_PATH).then(() => {
   console.log('connected to mongodb');
   app.listen(3001);
 }).catch(err => {
