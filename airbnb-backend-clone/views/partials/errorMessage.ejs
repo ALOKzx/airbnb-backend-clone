@@ -1,0 +1,9 @@
+<div>
+  <% if(errorMessage.length > 0) { %> 
+  <ul class="mb-4 px-4 py-3 bg-red-100 border border-red-500 rounded-lg">
+    <% errorMessage.forEach((error) => { %>
+    <li class="text-red-500 text-sm list-disc ml-4"><%= error %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+</div>

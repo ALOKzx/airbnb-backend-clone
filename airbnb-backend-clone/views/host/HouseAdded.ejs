@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+
+  <body >
+    <%- include('../partials/nav') %>
+    <main class="container mx-auto px-4 py-8"></main>
+      <h1 class="text-3xl font-bold text-center mb-6">House Registered Successfully</h1>
+      
+      <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+          <a href="#" class="block overflow-hidden rounded-lg">
+            <img class="object-cover w-full h-64 transition-transform duration-300 hover:scale-105" src="<%= housePic %>" alt="<%= houseName %>" />
+          </a>
+          
+          <h3 class="mt-6 text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+            <a href="#"><%= houseName %></a>
+          </h3>
+          <p class="mt-4 text-gray-600"><span class="font-medium">Location:</span> <%= houseLocation %></p>
+          <p class="mt-2 text-2xl font-bold text-blue-600">₹<%= housePrice %> <span class="text-sm font-normal text-gray-600">per night</span></p>
+          <div class="h-0 mt-6 mb-4 border-t-2 border-gray-100"></div>
+          <div class="flex items-center">
+            <span class="text-sm font-medium text-gray-700">Rating:</span>
+            <span class="ml-2 text-yellow-500 text-lg"><%= houseRating %>⭐</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

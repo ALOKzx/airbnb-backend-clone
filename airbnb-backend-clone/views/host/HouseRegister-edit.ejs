@@ -1,0 +1,77 @@
+<%- include('../partials/head') %>
+  
+    <body style="text-align: center" >
+      <%- include('../partials/nav') %>
+      <div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold text-red-500 mb-6"><%= editing ? 'Edit' : 'Register' %> your house</h1>
+        <main>
+          <form action="/host/<%= editing ? 'edit-house' : 'house-registration' %>" method="post" enctype="multipart/form-data" class="space-y-4">
+            
+            <input type="hidden" name="houseId" value="<%= editing ? house._id : '' %>" />
+            <input
+              type="text"
+              name="houseName"
+              value="<%= editing ? house.houseName : '' %>"
+              placeholder="Enter your house name"
+              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            />
+
+            <input
+            type="text"
+            name="houseLocation"
+            value="<%= editing ? house.houseLocation : '' %>"
+            placeholder="Enter the House Location"
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+
+          <input
+            type="text"
+            name="houseDescription"
+            value="<%= editing ? house.houseDescription : '' %>"
+            placeholder="Enter Description"
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+
+          
+
+          <input
+          type="text"
+          name="housePrice"
+          value="<%= editing ? house.housePrice : '' %>"
+          placeholder="Enter the Price Per Night"
+          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+        />
+        <input
+        type="text"
+        name="houseRating"
+        value="<%= editing ? house.houseRating : '' %>"
+        placeholder="Rating"
+        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+      />
+      <input
+      type="file"
+      name="housePic"
+      accept="/image/jpg, /image/jpeg, /image/png"
+      multiple
+      class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+    />
+<!-- 
+    <input
+      type="file"
+      name="housePdf"
+      accept="/image/pdf"
+      multiple
+      class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+    /> -->
+            <input 
+              type="submit"
+              
+              value="<%= editing ? 'Update' : 'Register' %>"
+              class="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors cursor-pointer"
+            />
+          </form>
+        </main>
+      </div>
+    </body>
+  
+</html>
